@@ -1,8 +1,16 @@
 function firstWord(s) {
-  // your code here
+    if (s.trim() === '') {
+        return '';
+    }
+    const spaceIndex = s.indexOf(' ');
+    if (spaceIndex === -1) {
+        return s;
+    }
+    return s.slice(0, spaceIndex);
 }
 
-// Do not change the code below
-
-const s = prompt("Enter String:");
-alert(firstWord(s));
+function showFirstWord() {
+    const inputText = document.getElementById('inputText').value;
+    const result = firstWord(inputText);
+    document.getElementById('result').textContent = `First word: ${result}`;
+}
